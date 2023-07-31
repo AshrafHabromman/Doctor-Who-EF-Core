@@ -13,5 +13,8 @@ namespace DoctorWho.DB.Models
         public int AuthorId { get; set; }
         public int DoctorId { get; set; }
         public string Notes { get; set; } = string.Empty;
+
+        public IEnumerable<Enemy> Enemies { get; set; } = new List<Enemy>();
+        public IEnumerable<Companion> Companions { get; set; } = new List<Companion>();
     }
 }

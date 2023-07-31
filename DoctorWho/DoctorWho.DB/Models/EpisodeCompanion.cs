@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace DoctorWho.DB.Models
 {
-    internal class EpisodeCompanion
+    public class EpisodeCompanion
     {
+        public int Id { get; set; }
+        public int EpisodeId { get; set; }
+        public int CompanionId { get; set; }
+        public Episode? Episode { get; set; }
+        public Companion? Companion { get; set; }
     }
 }
