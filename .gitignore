@@ -526,6 +526,7 @@ FodyWeavers.xsd
 ### Database ###
 *.accdb
 *.db
+!DoctorWho.DB/
 *.dbf
 *.mdb
 *.sqlite3
