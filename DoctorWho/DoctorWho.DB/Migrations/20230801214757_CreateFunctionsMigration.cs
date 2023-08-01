@@ -24,7 +24,28 @@ namespace DoctorWho.DB.Migrations
 
 	                                    RETURN @enemies
                                     END");
+
+            migrationBuilder.Sql(@"CREATE FUNCTION dbo.fnCompanions(@EpisodeId INT)
+                                    RETURNS NVARCHAR(MAX)
+                                    AS
+                                    BEGIN
+                                        DECLARE @companions NVARCHAR(MAX);
+                                        SET @companions = N'';
+
+                                        SELECT @companions = @companions + COALESCE(Name, N'') + N', '
+                                        FROM Companions
+                                        WHERE Id IN (
+                                            SELECT CompanionId
+                                            FROM EpisodeCompanion
+                                            WHERE EpisodeId = @EpisodeId
+                                        );
+
+                                        SET @companions = LEFT(@companions, LEN(@companions) - 1);
+
+                                        RETURN @companions;
+                                    END;");
         }
+  
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {

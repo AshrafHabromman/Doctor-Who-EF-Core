@@ -9,7 +9,7 @@ namespace DoctorWho.DB.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.Sql(@"CREATE VIEW [dbo].[viewEpisodes] AS 
-                                    SELECT  A.Name, D.Name,
+                                    SELECT  A.Name AS AuthorName, D.Name As DoctorName,
                                     dbo.fnCompanions(E.Id) AS CompanionsNames, 
                                     dbo.fnEnemies(E.Id) AS EnemiesNames
 
