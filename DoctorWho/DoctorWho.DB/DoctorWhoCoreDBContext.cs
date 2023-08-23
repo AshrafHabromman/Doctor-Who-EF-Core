@@ -3,7 +3,7 @@ using DoctorWho.DB.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DoctorWho;
-public class DoctorWhoCoreDBContext: DbContext
+public class DoctorWhoCoreDBContext : DbContext
 {
     public DbSet<Episode> Episodes { get; set; }
     public DbSet<Enemy> Enemies { get; set; }
@@ -20,6 +20,7 @@ public class DoctorWhoCoreDBContext: DbContext
         );
     }
 
+    public string EnemiesOfEpisode(int EpisodeId) => throw new NotSupportedException();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -85,6 +86,8 @@ public class DoctorWhoCoreDBContext: DbContext
             new EpisodeEnemy { Id = 4, EpisodeId = 4, EnemyId = 4 },
             new EpisodeEnemy { Id = 5, EpisodeId = 5, EnemyId = 5 }
         );
+       
+
     }
 
 }
